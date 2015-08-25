@@ -1,3 +1,4 @@
+
 /*
 Tone.cpp port Tone library for Intel Galileo
 Copyright (C) 2014 Intel Corporation
@@ -80,13 +81,15 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration)
       {
         time1 = micros();
         time2 = time1;
-        fastDigitalWrite(_pin,HIGH);
+        fastGpioPciDigitalWrite(_pin, HIGH);
+        // fastDigitalWrite(_pin,HIGH);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();
         }
         time1 = micros();
-        fastDigitalWrite(_pin,LOW);
+        fastGpioPciDigitalWrite(_pin, LOW);
+        // fastDigitalWrite(_pin,LOW);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();
@@ -163,13 +166,15 @@ void *toneHandler(void *arg)
         }
         time1 = micros();
         time2 = time1;
-        fastDigitalWrite(tPin,HIGH);
+        fastGpioPciDigitalWrite(tPin, HIGH);
+        // fastDigitalWrite(tPin,HIGH);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();
         }
         time1 = micros();
-        fastDigitalWrite(tPin,LOW);
+        fastGpioPciDigitalWrite(tPin, LOW);
+        // fastDigitalWrite(tPin,LOW);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();
@@ -187,13 +192,15 @@ void *toneHandler(void *arg)
         }
         time1 = micros();
         time2 = time1;
-        fastDigitalWrite(tPin,HIGH);
+        fastGpioPciDigitalWrite(tPin, HIGH);
+        // fastDigitalWrite(tPin,HIGH);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();
         }
         time1 = micros();
-        fastDigitalWrite(tPin,LOW);
+        fastGpioPciDigitalWrite(tPin, LOW);
+        // fastDigitalWrite(tPin,LOW);
         while(((long)(time2 - time1)) <= delayAmount)
         {
           time2 = micros();

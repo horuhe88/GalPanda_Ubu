@@ -147,7 +147,9 @@ void variantEnablePullup(uint8_t pin, int enable);
 
 void setPwmSwizzler(uint8_t pwm0, uint8_t pwm1, uint8_t pwm2, uint8_t pwm3);
 
-#define fastGpioDigitalWrite(id, val)		fastGpioPciDigitalWrite(id, val)
+void fastGpioDigitalWrite(uint8_t id,uint8_t val);
+// void fastGpioPciDigitalWrite(uint8_t id, uint8_t val)
+// #define fastGpioDigitalWrite(id, val)		fastGpioPciDigitalWrite(id, val)
 #define fastGpioDigitalRead(id)			fastGpioPciDigitalRead(id)
 #define fastGpioDigitalRegSnapshot(id)		fastGpioPciDigitalRegSnapshot(id)
 #define fastGpioDigitalRegWriteUnsafe(id, val)	fastGpioPciDigitalWrite(id, val)

@@ -726,3 +726,9 @@ void init( int argc, char * argv[] )
 	eepromInit();
 }
 
+void fastGpioDigitalWrite(int id,int val){
+		fastGpioPciDigitalWrite(id, val);
+}
+// #define fastGpioDigitalRead(id)			fastGpioPciDigitalRead(id)
+// #define fastGpioDigitalRegSnapshot(id)		fastGpioPciDigitalRegSnapshot(id)
+// #define fastGpioDigitalRegWriteUnsafe(id, val)	fastGpioPciDigitalWrite(id, val)

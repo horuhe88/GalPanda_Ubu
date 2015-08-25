@@ -5,7 +5,7 @@
 #--------------------------------PORTATIL-----------------------------------------------------------------------------
 IDIR =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino
 IDIR2 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/sys
-IDIR3 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/linux
+IDIR3 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/linux/serial.h
 CFLAGS=-I$(IDIR)
 CC=g++
 CC2=arm-linux-gnueabihf-g++
@@ -18,7 +18,7 @@ CC3=arm-linux-gnueabihf-gcc
 # 			$(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -Wformat-extra-args -c HolaMundo.cpp
 
 ScanO: WiFi.o WiFiUdp.o SPI.o main.o Print.o TTYUART.o	IPAddress.o wiring_digital.o
-		     $(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -o test.elf WiFi.o WiFiUdp.o SPI.o main.o Print.o TTYUART.o IPAddress.o wiring_digital.o $(CFLAGS)/edison/cores/arduino $(CFLAGS)/edison/variants/edison_fab_b $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi #-L/usr/lib/gcc/x86_64-linux-gnu/4.8
+		     $(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -o test.elf WiFi.o WiFiUdp.o SPI.o main.o Print.o TTYUART.o IPAddress.o wiring_digital.o $(CFLAGS)/edison/cores/arduino $(CFLAGS)/edison/variants/edison_fab_b $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) #-L/usr/lib/gcc/x86_64-linux-gnu/4.8
 
 
 

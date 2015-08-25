@@ -15,7 +15,7 @@
 #define MAX_DUTY 255
 
 #include <pthread.h>
-#include <Arduino.h>
+#include "Arduino.h"
 
 struct pwm_thread_param
 {
@@ -105,11 +105,13 @@ void *pwmHandler(void *arg)
       }
       else if(duty ==0)
       {
-        fastDigitalWrite(pin, LOW); 
+        fastGpioPciDigitalWrite(pin,LOW);
+        // fastDigitalWrite(pin, LOW); 
       }
       else if(duty ==MAX_DUTY)
       {
-        fastDigitalWrite(pin, HIGH);
+        fastGpioPciDigitalWrite(pin, HIGH);
+        // fastDigitalWrite(pin, HIGH);
       }
       else
       {
@@ -128,11 +130,12 @@ void pulse(int usec, int pin)
   noInterrupts();
   unsigned long a = micros();
   unsigned long b = a;
-  fastDigitalWrite(pin, HIGH);
+  fastGpioPciDigitalWrite(pin, HIGH);
   while((b-a) < (usec))
   {
     b = micros();
   }
-  fastDigitalWrite(pin, LOW); 
+  fastGpioPciDigitalWrite(pin, LOW);
+  // fastDigitalWrite(pin, LOW); 
   interrupts();
 }

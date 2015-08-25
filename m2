@@ -15,7 +15,7 @@ ARCH2=armv7
 
 ##----------------------------------------------------------Para generar .o----------------------------------------------------------
 ScanLM: main.cpp
-			$(CC2) -march=$(ARCH2) -w -ffunction-sections -fdata-sections -fno-exceptions -c $(IDIR)/edison/libraries/WiFi/WiFi.cpp $(IDIR)/edison/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/edison/libraries/SPI/SPI.cpp $(CFLAGS)/edison/cores/arduino $(IDIR)/edison/cores/arduino/IPAddress.cpp $(IDIR)/edison/cores/arduino/TTYUART.cpp $(IDIR)/edison/cores/arduino/wiring_digital.c $(IDIR)/edison/cores/arduino/Print.cpp $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -l$(IDIR3) #$(IDIR)/edison/cores/arduino/trace.c 
+			$(CC2) -march=$(ARCH2) -w -Wa -x c++ -ffunction-sections -fdata-sections -fno-exceptions -c $(IDIR)/edison/libraries/WiFi/WiFi.cpp $(IDIR)/edison/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/edison/libraries/SPI/SPI.cpp $(CFLAGS)/edison/cores/arduino $(IDIR)/edison/cores/arduino/IPAddress.cpp $(IDIR)/edison/cores/arduino/TTYUART.cpp $(IDIR)/edison/cores/arduino/pulseIn.cpp $(IDIR)/edison/cores/arduino/RingBuffer.cpp $(IDIR)/edison/cores/arduino/variant.cpp $(IDIR)/edison/cores/arduino/softwarepwm.cpp $(IDIR)/edison/cores/arduino/Stream.cpp $(IDIR)/edison/cores/arduino/Tone.cpp $(IDIR)/edison/cores/arduino/UtilMisc.cpp $(IDIR)/edison/cores/arduino/UtilTime.cpp $(IDIR)/edison/cores/arduino/wiring_digital.c $(IDIR)/edison/cores/arduino/Print.cpp $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) -L$(IDIR)/edison/cores #$(IDIR)/edison/cores/arduino/trace.c 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
 
