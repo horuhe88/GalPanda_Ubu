@@ -3,6 +3,7 @@
 IDIR =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino
 IDIR2 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/sys
 IDIR3 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/linux/serial.h
+IDIR4 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino/edison/cores/arduino
 CFLAGS=-I$(IDIR)
 CC=g++
 CC2=arm-linux-gnueabihf-g++
@@ -15,7 +16,7 @@ ARCH2=armv7
 
 ##----------------------------------------------------------Para generar .o----------------------------------------------------------
 ScanLM: main.cpp
-			$(CC2) -march=$(ARCH2) -w -Wa -x c++ -ffunction-sections -fdata-sections -fno-exceptions -c $(IDIR)/edison/libraries/WiFi/WiFi.cpp $(IDIR)/edison/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/edison/libraries/SPI/SPI.cpp $(CFLAGS)/edison/cores/arduino $(IDIR)/edison/cores/arduino/IPAddress.cpp $(IDIR)/edison/cores/arduino/TTYUART.cpp $(IDIR)/edison/cores/arduino/pulseIn.cpp $(IDIR)/edison/cores/arduino/RingBuffer.cpp $(IDIR)/edison/cores/arduino/variant.cpp $(IDIR)/edison/cores/arduino/softwarepwm.cpp $(IDIR)/edison/cores/arduino/Stream.cpp $(IDIR)/edison/cores/arduino/Tone.cpp $(IDIR)/edison/cores/arduino/UtilMisc.cpp $(IDIR)/edison/cores/arduino/UtilTime.cpp $(IDIR)/edison/cores/arduino/wiring_digital.c $(IDIR)/edison/cores/arduino/Print.cpp $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) -L$(IDIR)/edison/cores #$(IDIR)/edison/cores/arduino/trace.c 
+			$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -c $(IDIR)/edison/libraries/WiFi/WiFi.cpp $(IDIR)/edison/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/edison/libraries/SPI/SPI.cpp $(CFLAGS)/edison/cores/arduino $(IDIR4)/IPAddress.cpp $(IDIR4)/Print.cpp $(IDIR4)/pulseIn.cpp $(IDIR4)/RingBuffer.cpp $(IDIR4)/softwarepwm.cpp $(IDIR4)/Stream.cpp $(IDIR4)/Tone.cpp $(IDIR4)/TTYUART.cpp $(IDIR4)/UtilMisc.cpp $(IDIR4)/UtilTime.cpp $(IDIR4)/variant.cpp $(IDIR4)/WMath.cpp $(IDIR4)/WString.cpp   $(IDIR4)/wiring_digital.c $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) -L$(IDIR)/edison/cores #$(IDIR)/edison/cores/arduino/trace.c 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
 
