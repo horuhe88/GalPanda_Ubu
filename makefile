@@ -17,8 +17,8 @@ CC3=arm-linux-gnueabihf-gcc
 # ScanLM: HolaMundo.cpp
 # 			$(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -Wformat-extra-args -c HolaMundo.cpp
 
-ScanO: WiFi.o WiFiUdp.o SPI.o main.o Print.o TTYUART.o	IPAddress.o wiring_digital.o
-		     $(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -o test.elf WiFi.o WiFiUdp.o SPI.o main.o Print.o TTYUART.o IPAddress.o wiring_digital.o $(CFLAGS)/edison/cores/arduino $(CFLAGS)/edison/variants/edison_fab_b $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) #-L/usr/lib/gcc/x86_64-linux-gnu/4.8
+ScanO: WiFi.o WiFiUdp.o SPI.o main.o IPAddress.o Print.o pulseIn.o RingBuffer.o softwarepwm.o Stream.o Tone.o TTYUART.o UtilMisc.o UtilTime.o variant.o WMath.o WString.o wiring_digital.o
+		     $(CC2) -march=armv7 -w -ffunction-sections -fdata-sections -fno-exceptions -o test.elf WiFi.o WiFiUdp.o SPI.o main.o IPAddress.o Print.o pulseIn.o RingBuffer.o softwarepwm.o Stream.o Tone.o TTYUART.o UtilMisc.o UtilTime.o variant.o WMath.o WString.o wiring_digital.o $(CFLAGS)/edison/cores/arduino $(CFLAGS)/edison/variants/edison_fab_b $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -I$(IDIR3) #-L/usr/lib/gcc/x86_64-linux-gnu/4.8
 
 
 

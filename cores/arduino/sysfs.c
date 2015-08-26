@@ -16,13 +16,13 @@ Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 Boston, MA 02111-1307 USA
 */
 
-#include <Arduino.h>
+#include "Arduino.h"
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
 #include <fcntl.h>
-#include <trace.h>
-#include <interrupt.h>
+#include "trace.h"
+#include "interrupt.h"
 #include <errno.h>
 #include <dirent.h>
 
@@ -147,36 +147,36 @@ int sysfsPwmSetPeriod(int handle_period, unsigned long period)
 	return 0;
 }
 
-int sysfsPwmSetDutyCycle(int handle_duty, unsigned int duty_cycle)
-{
-	unsigned long long value_duty;
+// int sysfsPwmSetDutyCycle(int handle_duty, unsigned int duty_cycle)
+// {
+// 	unsigned long long value_duty;
 
-	if (duty_cycle > WIRE_PWM_DUTY_MAX) {
-		trace_error("%s duty_cycle must be less than %u", __func__,
-				WIRE_PWM_DUTY_MAX);
-		return -1;
-	}
+// 	if (duty_cycle > WIRE_PWM_DUTY_MAX) {
+// 		trace_error("%s duty_cycle must be less than %u", __func__,
+// 				WIRE_PWM_DUTY_MAX);
+// 		return -1;
+// 	}
 
-	value_duty = ((unsigned long long)duty_cycle * current_period) / WIRE_PWM_DUTY_MAX;
-	return sysfsPwmSetRawDutyCycle(handle_duty, value_duty);
-}
+// 	value_duty = ((unsigned long long)duty_cycle * current_period) / WIRE_PWM_DUTY_MAX;
+// 	return sysfsPwmSetRawDutyCycle(handle_duty, value_duty);
+// }
 
-int sysfsPwmSetRawDutyCycle(int handle_duty, unsigned int duty_cycle_ns)
-{
-	char value[16] = { 0 };
-	int ret;
+// int sysfsPwmSetRawDutyCycle(int handle_duty, unsigned int duty_cycle_ns)
+// {
+// 	char value[16] = { 0 };
+// 	int ret;
 
-	snprintf(value, sizeof(value), "%u", duty_cycle_ns);
-	lseek(handle_duty, 0, SEEK_SET);
-	ret = write(handle_duty, &value, sizeof(value));
-	if (sizeof(value) != ret) {
-		trace_error("%s Can't write to duty_cycle: %s", __func__,
-				strerror(errno));
-		return -1;
-	}
+// 	snprintf(value, sizeof(value), "%u", duty_cycle_ns);
+// 	lseek(handle_duty, 0, SEEK_SET);
+// 	ret = write(handle_duty, &value, sizeof(value));
+// 	if (sizeof(value) != ret) {
+// 		trace_error("%s Can't write to duty_cycle: %s", __func__,
+// 				strerror(errno));
+// 		return -1;
+// 	}
 
-	return 0;
-}
+// 	return 0;
+// }
 
 static int find_iio_dev_name(char *iio_dev_name, size_t iio_dev_name_len)
 {

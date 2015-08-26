@@ -11,8 +11,8 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <dirent.h>
-#include <trace.h>
-#include <Arduino.h>
+#include "trace.h"
+#include "Arduino.h"
 
 #include "fast_gpio_pci.h"
 
@@ -157,10 +157,10 @@ int fastGpioPciInit(void)
 		return -1;
 	}
 
-	if (fstat(fd, &st) < 0) {
-		trace_error("%s Can't get file size: %s", strerror(errno));
-		return -1;
-	}
+	// if (fstat(fd, &st) < 0) {
+	// 	trace_error("%s Can't get file size: %s", strerror(errno));
+	// 	return -1;
+	// }
 
 	regs = (uint8_t*) mmap(NULL, st.st_size,
 			PROT_READ | PROT_WRITE,

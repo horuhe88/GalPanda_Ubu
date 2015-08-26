@@ -25,7 +25,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
 */
 
-#include <Arduino.h>
+#include "Arduino.h"
 
 
 unsigned long pulseIn(uint8_t pin, uint8_t value, unsigned long timeout)
