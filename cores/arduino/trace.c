@@ -19,7 +19,9 @@
 #include <stdint.h>
 #include <string.h>
 //#include <sys/stat.h>
+#include <unistd.h>//Se agrega para solucionar problemas de read,write y close
 #include <sys/time.h>
+
 
 /* ia32 port */
 #include "trace.h"
