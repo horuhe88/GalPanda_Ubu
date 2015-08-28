@@ -1,6 +1,7 @@
 # make2
 
-IDIR =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino
+#IDIR0 = /home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino/edison
+IDIR = /home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino/edison
 IDIR2 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/sys
 IDIR3 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/tools/sysroots/i586-poky-linux-uclibc/usr/include/linux/serial.h
 IDIR4 =/home/jorge/Downloads/arduino-1.5.3-Intel.1.0.4/hardware/arduino/edison/cores/arduino
@@ -15,12 +16,13 @@ ARCH2=armv7
 #			$(CC2) -o prueba main.cpp $(CFLAGS)/edison/cores/arduino/ $(CFLAGS)/x86/variants/galileo_fab_g/ $(CFLAGS)/edison/libraries/SPI/ -I.
 
 ##----------------------------------------------------------Para generar .o----------------------------------------------------------
-ScanLM: main.cpp
-			$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -fpermissive -c $(IDIR)/edison/libraries/WiFi/WiFi.cpp $(IDIR)/edison/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/edison/libraries/SPI/SPI.cpp $(CFLAGS)/edison/cores/arduino $(IDIR4)/IPAddress.cpp $(IDIR4)/Print.cpp $(IDIR4)/pulseIn.cpp $(IDIR4)/RingBuffer.cpp $(IDIR4)/softwarepwm.cpp $(IDIR4)/Stream.cpp $(IDIR4)/Tone.cpp $(IDIR4)/TTYUART.cpp $(IDIR4)/UtilMisc.cpp $(IDIR4)/UtilTime.cpp $(IDIR4)/variant.cpp $(IDIR4)/WMath.cpp $(IDIR4)/WString.cpp  $(IDIR4)/fast_gpio_common.c $(IDIR4)/fast_gpio_nc.c $(IDIR4)/fast_gpio_pci.c $(IDIR4)/fast_gpio_sc.c $(IDIR4)/i2c.c $(IDIR4)/interrupt.c $(IDIR4)/mux.c $(IDIR4)/sysfs.c $(IDIR4)/trace.c $(IDIR4)/wiring_digital.c $(CFLAGS)/edison/libraries/SPI $(CFLAGS)/edison/libraries/WiFi -L$(IDIR)/edison/cores #-I$(IDIR3) $(IDIR)/edison/cores/arduino/trace.c 
+#ScanLM: main.cpp
+			#$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -fpermissive -c $(IDIR)/libraries/WiFi/WiFi.cpp $(IDIR)/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/libraries/SPI/SPI.cpp $(CFLAGS)/cores/arduino $(IDIR4)/IPAddress.cpp $(IDIR4)/Print.cpp $(IDIR4)/pulseIn.cpp $(IDIR4)/RingBuffer.cpp $(IDIR4)/softwarepwm.cpp $(IDIR4)/Stream.cpp $(IDIR4)/Tone.cpp $(IDIR4)/TTYUART.cpp $(IDIR4)/UtilMisc.cpp $(IDIR4)/UtilTime.cpp $(IDIR4)/variant.cpp $(IDIR4)/WMath.cpp $(IDIR4)/WString.cpp  $(IDIR4)/fast_gpio_common.c $(IDIR4)/fast_gpio_nc.c $(IDIR4)/fast_gpio_pci.c $(IDIR4)/fast_gpio_sc.c $(IDIR4)/i2c.c $(IDIR4)/interrupt.c $(IDIR4)/mux.c $(IDIR4)/sysfs.c $(IDIR4)/trace.c $(IDIR4)/wiring_analog.c $(IDIR4)/wiring_digital.c $(CFLAGS)/libraries/SPI $(CFLAGS)/libraries/WiFi -L$(IDIR)/cores -I. #-I$(IDIR3) $(IDIR)/cores/arduino/trace.c 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
 
-
+ScanLM: main.cpp
+			$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -fpermissive -c $(IDIR)/libraries/WiFi/WiFi.cpp $(IDIR)/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/libraries/SPI/SPI.cpp $(CFLAGS)/cores/arduino $(IDIR4)/*.cpp $(IDIR4)/wiring_digital.c $(CFLAGS)/libraries/SPI $(CFLAGS)/libraries/WiFi -L$(IDIR)/cores -I. #-I$(IDIR3) $(IDIR)/cores/arduino/trace.c 
 
 
 
