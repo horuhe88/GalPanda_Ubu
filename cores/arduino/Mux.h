@@ -5,8 +5,8 @@
 #ifndef __MUX_H__
 #define __MUX_H__
 
-#include <Arduino.h>		// Contains types
-#include <wiring_digital.h>
+#include "Arduino.h"		// Contains types
+#include "wiring_digital.h"
 
 #ifdef __cplusplus
 extern "C" {
