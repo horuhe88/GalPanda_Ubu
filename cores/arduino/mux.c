@@ -4,12 +4,12 @@
  * High level abstraction for muxing across boards
  */
 
-#include <Arduino.h>		// Contains types
+#include "Arduino.h"		// Contains types
 #include <errno.h>			// -EINVAL and friends
-#include <Mux.h>
+#include "Mux.h"
 #include "variant.h"		// Contains board specific data to drive muxing options
 #include "sysfs.h"
-#include <trace.h>
+#include "trace.h"
 
 #define MY_TRACE_PREFIX "mux"
 

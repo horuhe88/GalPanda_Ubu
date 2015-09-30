@@ -24,8 +24,8 @@
 #include <sys/types.h>
 
 /* ia32 port */
-#include <Arduino.h>
-#include <trace.h>
+#include "Arduino.h"
+#include "trace.h"
 #include "fast_gpio_common.h"
 
 #define __TTYUART_IDX_TX 1

@@ -1,7 +1,7 @@
 // Arduino hooks
-#include "Arduino.h"
+#include <Arduino.h>
 #include "trace.h"
-#include <interrupt.h>
+#include "interrupt.h"
 #include <sys/stat.h>
 
 #define PLATFORM_NAME_PATH "/sys/devices/platform/"

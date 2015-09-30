@@ -26,7 +26,7 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
-#include <trace.h>
+#include "trace.h"
 #include "i2c-dev.h"
 #include "variant.h"
 
