@@ -13,7 +13,7 @@
 #include <fcntl.h>              /* Obtain O_* constant definitions */
 #include <netinet/in.h>
 #include <mqueue.h>
-#include <pthread.h>
+#include "pthread.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdint.h>
