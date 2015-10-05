@@ -23,7 +23,7 @@ ARCH2=armv7
 
 #----------------------------------Para generar .o de archivos .cpp-------------------------------------------------------
 ScanLM: main.cpp
-			$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -fpermissive -c $(IDIR)/libraries/WiFi/WiFi.cpp $(IDIR)/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/libraries/SPI/SPI.cpp $(CFLAGS)/cores/arduino $(IDIR4)/IPAddress.cpp $(IDIR4)/Print.cpp $(IDIR4)/pulseIn.cpp $(IDIR4)/RingBuffer.cpp $(IDIR4)/softwarepwm.cpp $(IDIR4)/Stream.cpp $(IDIR4)/Tone.cpp $(IDIR4)/TTYUART.cpp $(IDIR4)/UtilMisc.cpp $(IDIR4)/UtilTime.cpp $(IDIR4)/variant.cpp $(IDIR4)/WMath.cpp $(IDIR4)/WString.cpp $(CFLAGS)/libraries/SPI $(CFLAGS)/libraries/WiFi -L$(IDIR)/cores -larduino -I. #-I$(IDIR3) $(IDIR)/cores/arduino/trace.c 
+			$(CC2) -march=$(ARCH2) -w -x c++ -ffunction-sections -fdata-sections -fno-exceptions -fpermissive -c $(IDIR)/libraries/WiFi/WiFi.cpp $(IDIR)/libraries/WiFi/WiFiUdp.cpp main.cpp -Wformat-extra-args $(IDIR)/libraries/SPI/SPI.cpp $(CFLAGS)/cores/arduino $(IDIR4)/IPAddress.cpp $(IDIR4)/Print.cpp $(IDIR4)/pulseIn.cpp $(IDIR4)/RingBuffer.cpp $(IDIR4)/softwarepwm.cpp $(IDIR4)/Stream.cpp $(IDIR4)/TTYUART.cpp $(IDIR4)/UtilMisc.cpp $(IDIR4)/UtilTime.cpp $(IDIR4)/variant.cpp $(IDIR4)/WMath.cpp $(IDIR4)/WString.cpp $(CFLAGS)/libraries/SPI $(CFLAGS)/libraries/WiFi -L$(IDIR)/cores -larduino -I. #-I$(IDIR3) $(IDIR)/cores/arduino/trace.c $(IDIR4)/Tone.cpp
 			
 #----------------------------------Para generar .o de archivos .c----------------------------------------------------------
 			$(CC3) -march=$(ARCH2) -w -c -pthread $(IDIR4)/*.c -L$(IDIR)/cores #-include $(IDIR5)/pthread_create.c -I$(IDIR5) -I. -lm #
